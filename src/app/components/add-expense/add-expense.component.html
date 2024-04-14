@@ -1,0 +1,35 @@
+<mat-card-content class="mat-typography"  class="example-full-width">
+    <div class="container" [ngStyle]="{border:'1px solid grey',marginTop:'5px',background:'lightgrey'}">
+        <div>
+            <h4 [ngStyle]="{textAlign:'center' , colour:'darkblue',marginTop:'6px'}">Add Expense</h4>
+        </div>
+        <form (ngSubmit)="saveExpense()" mat-form>
+            <div>
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Expense Type</mat-label>
+                        <input matInput #message name="expense" [(ngModel)]="expense.expense" placeholder="About Expense">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Expense Amount</mat-label>
+                        <input matInput #message name="amount" [(ngModel)]="expense.amount" placeholder="Expense Amount">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Expense Description</mat-label>
+                        <input matInput #message name="description" [(ngModel)]="expense.description" placeholder="Description">
+                    </mat-form-field>
+                </div>
+
+                <mat-dialog-actions align="end">
+                    <button mat-raised-button style="margin-left:25%;" color="primary" type="submit">Add/Update Expense</button>
+                    <button mat-raised-button style="margin-left:2%;" color="warn" *ngIf="expense.id" (click) = "onDeleteExpense(expense.id)">Delete</button>
+                </mat-dialog-actions>
+
+            </div>
+        </form>
+    </div>
+</mat-card-content>

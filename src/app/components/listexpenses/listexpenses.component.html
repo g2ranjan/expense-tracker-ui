@@ -1,0 +1,44 @@
+<div style="display: flex; margin-top: 1%;">
+    <div style="margin-left: 25%; margin-right: 20%;">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Search Expense</mat-label>
+                <input matInput #message name = "filter.Keyword" maxlength="256" placeholder="expense Type"
+                [(ngModel)] = "filter.Keyword" (input)="loadApp()">
+            </mat-form-field>
+        </form>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <mat-label>Sort By</mat-label>
+            <mat-select [(value)] = "filter.sortBy" (selectionChange) = "loadApp()">
+                <mat-option value = "Name">Expense Type</mat-option>
+                <mat-option value = "Amount">Expense Amount</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+
+<div style="width: 100%;">
+    <div *ngFor="let expense of expenses" style="padding: 1rem; margin-right: 5rem; width: 50%;">
+        <mat-card class="example-card">
+            <mat-card-content>
+                <div style="display: flex;">
+                    <div style="width: 50%;">
+                        <h2>Expense : {{expense.expense}}</h2>
+                        <p>Amount : {{expense.amount | currency:'INR'}}</p>
+                    </div>
+                    <div>
+                        <button routerLink="editexpense/{{expense.id}}" mat-raised-button color="primary" style="margin-top: 26%; width: max-content;">
+                            Exit Expense</button>
+                    </div>
+                    <div style="padding: 33px 14px; position: sticky; margin-left: 1%;">
+                        <button mat-raised-button color="warn" (click)="onDeleteExpense(expense.id)">Delete</button>
+                    
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+.example-button-row button,
+.example-button-row a{
+    margin-right: 8px;
+}
+
+.example-disabled{
+    display: inline-block;
+}
+
+.example-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width{
+    width: 100%;
+}
+
+.example-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width{
+    width: 250%;
+}
+
+.example-card{
+    position: relative;
+    width: 194%;
+    padding: 5%;
+    margin-bottom: 8px;
+    margin-right: 2rem;
+    background-color: skyblue;
+}
